@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>North STL 2050 Vision</title>
+  <meta name="description" content="An immersive public vision site for a futuristic North St. Louis innovation community in 2050." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+      --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --text-hero:clamp(3rem,.5rem + 7vw,7rem);
+      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-24:6rem;
+      --color-bg:#f5f2ec;--color-surface:#fbfaf7;--color-surface-2:#efe9e0;--color-border:#d9d1c5;--color-text:#211d18;--color-text-muted:#6f6a62;--color-text-inverse:#faf8f4;--color-primary:#0b6c74;--color-accent:#9d5b24;--color-success:#4f7b2e;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06);--shadow-md:0 12px 30px rgba(0,0,0,.10);--radius-md:.75rem;--radius-lg:1.25rem;--radius-full:999px;
+      --font-body:'Satoshi',Inter,sans-serif;--font-display:'Boska',Georgia,serif;--content:1200px;
+    }
+    [data-theme="dark"]{--color-bg:#121313;--color-surface:#171919;--color-surface-2:#202424;--color-border:#2e3434;--color-text:#ece8e1;--color-text-muted:#b0aaa1;--color-text-inverse:#141515;--color-primary:#65b6bf;--color-accent:#d39b63;--color-success:#8eba67;--shadow-sm:0 1px 2px rgba(0,0,0,.24);--shadow-md:0 16px 42px rgba(0,0,0,.38)}
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--font-body);font-size:var(--text-base);background:var(--color-bg);color:var(--color-text);line-height:1.6}
+    img,svg{display:block;max-width:100%;height:auto} a{text-decoration:none;color:inherit} button{font:inherit;cursor:pointer}
+    .container{max-width:var(--content);margin:0 auto;padding:0 var(--space-4)}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:1000}
+    header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--color-bg) 84%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}.brand{display:flex;align-items:center;gap:.8rem;font-weight:700}
+    .brand svg{width:42px;height:42px}.nav-links{display:flex;gap:1rem;flex-wrap:wrap}.nav-links a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .toggle{border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);padding:.7rem .9rem;border-radius:var(--radius-full)}
+    .hero{padding:clamp(4rem,10vw,9rem) 0 4rem;border-bottom:1px solid var(--color-border)}
+    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.15em;color:var(--color-accent);margin-bottom:1rem}
+    h1,h2{font-family:var(--font-display);line-height:1.02} h1{font-size:var(--text-hero);max-width:12ch} h2{font-size:var(--text-2xl);margin-bottom:1rem}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:2rem;align-items:end}.lede{max-width:58ch;color:var(--color-text-muted);margin:1.25rem 0 1.5rem}
+    .cta-row{display:flex;gap:1rem;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.9rem 1.2rem;border-radius:var(--radius-full);border:1px solid var(--color-border)}
+    .btn.primary{background:var(--color-primary);border-color:var(--color-primary);color:var(--color-text-inverse)} .btn.secondary{background:var(--color-surface)}
+    .hero-card,.card,.panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+    .hero-card{padding:1.25rem;display:grid;gap:1rem}.stat{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--color-border)}.stat:last-child{border-bottom:none}
+    section{padding:clamp(3.5rem,8vw,7rem) 0}.section-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:2rem;margin-bottom:2rem}.muted{color:var(--color-text-muted)}
+    .districts,.kits,.prints{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card{padding:1.25rem;min-height:240px}.card h3{font-size:1.2rem;margin-bottom:.75rem}.tag{display:inline-block;padding:.3rem .7rem;border-radius:var(--radius-full);background:color-mix(in srgb,var(--color-primary) 18%, transparent);font-size:var(--text-xs);margin-bottom:1rem}
+    .timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.panel{padding:1.25rem}.panel strong{display:block;margin-bottom:.6rem}
+    .code{background:#0f1113;color:#dce7e8;border-radius:var(--radius-lg);padding:1.25rem;overflow:auto;border:1px solid #2a3033;font-size:.92rem}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}.print-box{padding:1.25rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)}
+    footer{padding:2rem 0 3rem;border-top:1px solid var(--color-border);color:var(--color-text-muted)}
+    @media (max-width: 900px){.hero-grid,.section-intro,.two-col,.timeline,.districts,.kits,.prints{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.nav-links{gap:.75rem}.hero{padding-top:3.5rem}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" aria-label="North STL 2050 logo" fill="none">
+          <rect x="6" y="8" width="18" height="48" rx="4" stroke="currentColor" stroke-width="3"></rect>
+          <path d="M24 20 40 8v48" stroke="currentColor" stroke-width="3"></path>
+          <path d="M40 8h18v48H40" stroke="currentColor" stroke-width="3"></path>
+          <path d="M13 46h4M13 38h4M47 20h4M47 28h4M47 36h4" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <div>North STL 2050</div>
+          <div class="muted" style="font-size:var(--text-xs);">Innovation after the storm</div>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#vision">Vision</a>
+        <a href="#districts">Districts</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#github">GitHub</a>
+        <a href="#kimi">Kimi</a>
+      </nav>
+      <button class="toggle" data-theme-toggle aria-label="Switch theme">Theme</button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Immersive civic future world</div>
+          <h1>A walkable North St. Louis neighborhood imagined for 2050.</h1>
+          <p class="lede">This starter site frames Sumner, The Ville, and nearby North St. Louis blocks as a future-ready community where AI, robotics, clean mobility, beautiful housing, learning campuses, parks, local business, and cultural repair grow together after the 2025 tornado.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#github">Use this on GitHub Pages</a>
+            <a class="btn secondary" href="#kimi">Use this with Kimi K2.5</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Project framing">
+          <div class="tag">Public vision platform</div>
+          <div class="stat"><span>Primary audience</span><strong>Residents, funders, city partners</strong></div>
+          <div class="stat"><span>Format</span><strong>Static immersive storytelling site</strong></div>
+          <div class="stat"><span>Built for</span><strong>GitHub Pages free hosting</strong></div>
+          <div class="stat"><span>Expansion path</span><strong>Visual-to-code, print kits, proposal decks</strong></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="container">
+        <div class="section-intro">
+          <h2>The vision</h2>
+          <p class="muted">The goal is not fantasy skyline art. The goal is a believable, neighborhood-scale future: family housing with dignity, autonomous shuttles, robotic logistics tucked behind the scenes, safe parks, AI-assisted schools, resilient infrastructure, local ownership, and visible racial inclusion woven into everyday life.</p>
+        </div>
+        <div class="timeline">
+          <article class="panel"><strong>2025</strong><p>Storm recovery, vacant parcels, infrastructure gaps, public grief, and a demand for visible reinvestment.</p></article>
+          <article class="panel"><strong>2030</strong><p>Land assembly, pilot blocks, microgrids, green corridors, and neighborhood-serving technology hubs.</p></article>
+          <article class="panel"><strong>2040</strong><p>Advanced schools, mobility loops, robotics-enabled maintenance, and mixed-income housing clusters.</p></article>
+          <article class="panel"><strong>2050</strong><p>A complete civic district where innovation is ordinary, walkable, beautiful, and community-owned.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="districts">
+      <div class="container">
+        <div class="section-intro">
+          <h2>District scenes</h2>
+          <p class="muted">These are the core environments to visualize across the site, the one-pagers, and the Kimi workflow. Each section can become its own screen, image series, or printable page.</p>
+        </div>
+        <div class="districts">
+          <article class="card"><div class="tag">Housing</div><h3>Future residential blocks</h3><p>Elegant mixed-income townhomes, senior housing, family apartments, solar canopies, shared courtyards, and robotics quietly supporting maintenance and delivery.</p></article>
+          <article class="card"><div class="tag">Learning</div><h3>AI schools and maker campuses</h3><p>Public schools with robotics labs, immersive classrooms, outdoor science parks, and neighborhood youth pathways into engineering, health, and entrepreneurship.</p></article>
+          <article class="card"><div class="tag">Everyday life</div><h3>Main street retail</h3><p>Restaurants, cafés, and an iconic ice cream store where automation helps operations while human hospitality, culture, and ownership stay front and center.</p></article>
+          <article class="card"><div class="tag">Wellness</div><h3>Health and resilience hubs</h3><p>Clinics, cooling centers, trauma recovery spaces, fresh food access, telehealth pods, and environmental monitoring integrated into community life.</p></article>
+          <article class="card"><div class="tag">Mobility</div><h3>Walkable transit loops</h3><p>Protected streets, neighborhood shuttles, drone-safe logistics zones, delivery lockers, and smart intersections designed around people first.</p></article>
+          <article class="card"><div class="tag">Public realm</div><h3>Parks and civic commons</h3><p>Playgrounds, performance lawns, stormwater gardens, sports spaces, memorial elements, and gathering places that tell the story of recovery and triumph.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container two-col">
+        <div>
+          <h2>Build roadmap</h2>
+          <div class="kits">
+            <article class="card"><h3>Phase 1</h3><p>Publish the immersive concept site with six districts, one map section, one recovery storyline, and clear calls to action for partners.</p></article>
+            <article class="card"><h3>Phase 2</h3><p>Add scene galleries, downloadable one-pagers, partner language, and stronger before/after storytelling tied to North St. Louis neighborhoods.</p></article>
+            <article class="card"><h3>Phase 3</h3><p>Expand into animated walkthrough scenes, deeper proposals, fundraising kits, and meeting-ready civic print materials.</p></article>
+          </div>
+        </div>
+        <div>
+          <h2>GitHub starter</h2>
+          <div class="code"><pre>&lt;!-- Repo structure --&gt;
+north-stl-2050/
+├── north-stl-2050-vision.html
+├── one-pager.md
+├── kimi-k25-prompts.md
+└── site-blueprint.md
+
+&lt;!-- Publish steps --&gt;
+1. Create a public GitHub repository.
+2. Upload the HTML file and markdown assets.
+3. In Settings &gt; Pages, deploy from the main branch.
+4. Choose the root folder.
+5. Open the generated GitHub Pages URL.
+6. Later, attach images, PDFs, and more sections.</pre></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="github">
+      <div class="container">
+        <div class="section-intro">
+          <h2>What to put on GitHub</h2>
+          <p class="muted">Use this page as the public face of the project. Pair it with separate markdown files for your pitch copy, one-page leave-behinds, and Kimi prompt workflows so you can update the vision without rewriting the core site every time.</p>
+        </div>
+        <div class="prints">
+          <article class="print-box"><h3>Homepage cover</h3><p>North St. Louis 2050: innovation after tragedy, a walkable district where advanced technology supports community healing and shared prosperity.</p></article>
+          <article class="print-box"><h3>Meeting one-pager</h3><p>A concise civic handout with challenge, vision, district components, implementation phases, and partnership asks.</p></article>
+          <article class="print-box"><h3>Partner brief</h3><p>A version for funders, universities, workforce partners, and technology companies interested in resilient neighborhood transformation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kimi">
+      <div class="container">
+        <div class="section-intro">
+          <h2>How to use Kimi K2.5</h2>
+          <p class="muted">Use Kimi separately as your visual coder, writing accelerator, and district-scene generator. Give it one task at a time: scene image brief, section rewrite, visual-to-code conversion, or long-form civic narrative expansion.</p>
+        </div>
+        <div class="two-col">
+          <article class="card"><h3>Best uses</h3><p>Generate section copy, rewrite public-facing language, turn sketches into HTML/CSS, expand each district into policy-friendly prose, and produce multiple versions for residents, funders, and city officials.</p></article>
+          <article class="card"><h3>Prompt style</h3><p>Be specific about place, people, tone, and output. Ask for a GitHub Pages-ready static file when you want code, and ask for separate markdown when you want print or proposal text.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Built as a GitHub Pages-ready starter for an immersive North St. Louis 2050 civic future site.</div>
+  </footer>
+
+  <script>
+    (function(){
+      const btn = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const sync = () => { btn.textContent = root.getAttribute('data-theme') === 'dark' ? 'Light mode' : 'Dark mode'; };
+      sync();
+      btn.addEventListener('click', () => { theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); sync(); });
+    })();
+  </script>
+</body>
+</html>
